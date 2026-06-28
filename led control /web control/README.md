@@ -1,6 +1,6 @@
 # ESP32-C3 Super Mini PWM LED Controller
 
-A compact, web-controlled LED dimmer built with **ESP32-C3 Super Mini**, featuring a custom 3D-printed enclosure with sliding lid.
+A compact, web-controlled LED dimmer built with **ESP32-C3 Super Mini**, featuring a custom 3D-printed enclosure with sliding lid.A compact web-controlled PWM LED dimmer designed specifically for **aquarium lighting**.
 
 
 ## ✨ Features
@@ -17,6 +17,7 @@ A compact, web-controlled LED dimmer built with **ESP32-C3 Super Mini**, featuri
 
 - **Microcontroller**: ESP32-C3 Super Mini (chosen for its small size)
 - **Power Switch**: N-channel MOSFET
+- **Female usb typeC and typeA port**
 - **Protection**:
   - 1kΩ resistor between GPIO and MOSFET Gate (limits inrush current)
   - 10kΩ pull-down resistor between Gate and GND (ensures default OFF state and prevents floating)
@@ -29,20 +30,36 @@ A compact, web-controlled LED dimmer built with **ESP32-C3 Super Mini**, featuri
 - MOSFET Drain → LED negative
 - 10kΩ pull-down between Gate and GND
 
+## ⚠️ Safety Disclaimer
+
+**This project involves soldering, electronics, and power components.**
+
+- The MOSFET may become hot during extended operation.
+- Always verify polarity and connections before applying power.
+- Use appropriate power supply ratings for your LED load.
+- This is a hobby/educational project. Use at your own risk.
+The author is not liable for any damage, injury, or loss resulting from following this guide.
+
+
 ## 📁 Project Contents
 
-- `ESP32_LED_Controller.ino` – Main firmware
+- `solo.ino` – Main firmware
 - `README.md`
-- `/3D_Enclosure/` – STL files for the case and sliding lid (updated for heatsink)
+- `Images`
+- `/3D_Enclosure/` – STL/f3d files for the case and sliding lid (updated for heatsink)
 
 ## 🚀 Setup Instructions
 
 ### 1. Libraries (Arduino IDE)
-- ESPAsyncWebServer (me-no-dev)
-- AsyncTCP (me-no-dev)
+- ESPAsyncWebServer 
+- AsyncTCP 
 
 ### 2. WiFi Configuration
-Update SSID and password in the code.
+Update SSID and password in the code by replacing ssid and password in
+
+```cpp
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 ### 3. Upload & Access
 1. Flash the code to the ESP32-C3 Super Mini
@@ -65,4 +82,8 @@ This project demonstrates:
 - 3D-printed enclosure design for practical use
 
 
+## 🔮 Future Updates (Planned)
 
+- **Timer functionality** – Automatic on/off schedule
+- **Multi-channel control** – Independent control for top lighting, bottom lighting, or RGB channels
+- Additional smart aquarium features like temperature, water level
