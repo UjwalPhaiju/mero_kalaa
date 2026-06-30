@@ -60,6 +60,7 @@ Update SSID and password in the code by replacing ssid and password in
 ```cpp
 const char* ssid = "YOUR_WIFI_SSID";
 const char* password = "YOUR_WIFI_PASSWORD";
+```
 
 ### 3. Upload & Access
 1. Flash the code to the ESP32-C3 Super Mini
